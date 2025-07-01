@@ -35,4 +35,10 @@ dependencies {
     // JSON serialization support for the client
     implementation("io.ktor:ktor-client-content-negotiation:2.3.7")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7")
+
+    // Ktor OpenAPI Generator
+    implementation("io.ktor:ktor-server-openapi:3.2.0")
+    implementation("io.swagger.codegen.v3:swagger-codegen-generators:1.0.36")
+    implementation("io.ktor:ktor-server-swagger:3.2.0")
+
 }

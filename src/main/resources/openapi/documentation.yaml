@@ -1,0 +1,221 @@
+openapi: 3.0.1
+info:
+  title: Tilawah Quran API
+  version: 1.0.0
+  description: API documentation for Quran data and surah content.
+
+paths:
+  /api/v1/quran:
+    get:
+      summary: Get all Surahs
+      operationId: getAllSurahs
+      responses:
+        "202":
+          description: List of Surahs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QuranDto'
+
+  /api/v1/quran/surah/{id}:
+    get:
+      summary: Get Surah by ID
+      operationId: getSurahById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The surah number (1–114)
+          schema:
+            type: integer
+      responses:
+        "202":
+          description: Surah text and translation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuranText'
+        "400":
+          description: Invalid surah ID
+
+  /api/v1/reciters/all:
+    get:
+      summary: Get all reciters
+      parameters:
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of all reciters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReciterListDto'
+
+  /api/v1/reciters/short-list:
+    get:
+      summary: Get a filtered list of reciters
+      parameters:
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Short list of reciters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReciterListDto'
+
+  /api/v1/radios/all:
+    get:
+      summary: Get all radio stations
+      parameters:
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of all radios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RadioListDto'
+
+  /api/v1/radios/short-list:
+    get:
+      summary: Get a filtered list of radios
+      parameters:
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Filtered list of radios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RadioListDto'
+
+components:
+  schemas:
+    QuranDto:
+      type: object
+      properties:
+        surahName:
+          type: string
+        surahNameArabic:
+          type: string
+        surahNameArabicLong:
+          type: string
+        surahNameTranslation:
+          type: string
+        revelationPlace:
+          $ref: '#/components/schemas/RevelationPlace'
+        totalAyah:
+          type: integer
+      required:
+        - surahName
+        - surahNameArabic
+        - surahNameArabicLong
+        - surahNameTranslation
+        - revelationPlace
+        - totalAyah
+
+    QuranText:
+      allOf:
+        - $ref: '#/components/schemas/QuranDto'
+        - type: object
+          properties:
+            surahNo:
+              type: integer
+            english:
+              type: array
+              items:
+                type: string
+            arabic1:
+              type: array
+              items:
+                type: string
+            arabic2:
+              type: array
+              items:
+                type: string
+          required:
+            - surahNo
+            - english
+            - arabic1
+            - arabic2
+
+    RevelationPlace:
+      type: string
+      enum:
+        - Madina
+        - Mecca
+
+    ReciterListDto:
+      type: object
+      properties:
+        reciters:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReciterDto'
+
+    ReciterDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        date:
+          type: string
+        moshaf:
+          type: array
+          items:
+            $ref: '#/components/schemas/Moshaf'
+
+    Moshaf:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        server:
+          type: string
+        surahTotal:
+          type: integer
+        moshafType:
+          type: integer
+        surahList:
+          type: string
+
+    RadioListDto:
+      type: object
+      properties:
+        radios:
+          type: array
+          items:
+            $ref: '#/components/schemas/RadioDto'
+
+    RadioDto:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        url:
+          type: string

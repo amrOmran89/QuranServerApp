@@ -13,7 +13,7 @@ import io.ktor.server.routing.route
 
 fun Routing.reciterRoute() {
     route("$apiVersion/reciters") {
-        get("/all") {
+        get {
             val language = call.parameters["language"] ?: "en"
             val response = client.get("https://www.mp3quran.net/api/v3/reciters") {
                 url {
