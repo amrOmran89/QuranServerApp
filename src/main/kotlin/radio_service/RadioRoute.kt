@@ -1,8 +1,10 @@
 package com.tilawah.radio_service
 
+import com.tilawah.apiVersion
 import com.tilawah.client
 import io.ktor.client.call.body
 import io.ktor.client.request.get
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.isSuccess
 import io.ktor.server.response.respond
 import io.ktor.server.response.respondText
@@ -12,14 +14,14 @@ import io.ktor.server.routing.route
 
 fun Routing.radioRoute() {
 
-    route("/radios") {
+    route("$apiVersion/radios") {
         get("/all") {
             val language = call.parameters["language"] ?: "en"
             val result = fetchRadios(language)
             when (result) {
                 is PubApiResult.Success -> {
                     val radioList = result.data
-                    call.respond(radioList)
+                    call.respond(status = HttpStatusCode.Accepted, radioList)
                 }
                 is PubApiResult.Failure -> {
                     call.respondText("Failed to fetch radio stations: ${result.exception.toString()}", status = io.ktor.http.HttpStatusCode.InternalServerError)
@@ -46,7 +48,7 @@ fun Routing.radioRoute() {
                     it.name.contains("مشاري", ignoreCase = true) ||
                     it.name.contains("Mishary", ignoreCase = true)
                 }
-                call.respond(shortRadioList)
+                call.respond(status = HttpStatusCode.Accepted, shortRadioList)
             } else {
                 call.respondText("Failed to fetch radio stations", status = response.status)
             }
