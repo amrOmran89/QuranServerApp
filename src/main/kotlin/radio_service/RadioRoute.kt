@@ -15,7 +15,7 @@ import io.ktor.server.routing.route
 fun Routing.radioRoute() {
 
     route("$apiVersion/radios") {
-        get("/all") {
+        get {
             val language = call.parameters["language"] ?: "en"
             val result = fetchRadios(language)
             when (result) {

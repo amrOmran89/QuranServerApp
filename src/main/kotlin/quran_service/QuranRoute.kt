@@ -23,7 +23,7 @@ fun Routing.quranRoute() {
             }
         }
 
-        get("/surah/{id}") {
+        get("/{id}") {
             val surahId = call.parameters["id"]?.toIntOrNull()
             if (surahId == null) {
                 call.respondText("Invalid reciter ID", status = HttpStatusCode.BadRequest)

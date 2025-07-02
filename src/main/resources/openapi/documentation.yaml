@@ -3,6 +3,9 @@ info:
   title: Tilawah Quran API
   version: 1.0.0
   description: API documentation for Quran data and surah content.
+servers:
+  - url: http://localhost:8080
+    description: Localhost
 
 paths:
   /api/v1/quran:
@@ -19,7 +22,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/QuranDto'
 
-  /api/v1/quran/surah/{id}:
+  /api/v1/quran/{id}:
     get:
       summary: Get Surah by ID
       operationId: getSurahById
@@ -40,7 +43,7 @@ paths:
         "400":
           description: Invalid surah ID
 
-  /api/v1/reciters/all:
+  /api/v1/reciters:
     get:
       summary: Get all reciters
       parameters:
