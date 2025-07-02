@@ -16,9 +16,10 @@ class ReciterRepository {
     }
 
     suspend fun getById(id: Int, query: String): HttpResponse {
-        val response = client.get("https://www.mp3quran.net/api/v3/reciters/$id") {
+        val response = client.get("https://www.mp3quran.net/api/v3/reciters") {
             url {
                 parameters.append("language", query)
+                parameters.append("reciter", id.toString())
             }
         }
         return response.body()
