@@ -1,4 +1,4 @@
-package com.tilawah.radio_service
+package com.tilawah.router.radio_router
 
 import kotlinx.serialization.Serializable
 

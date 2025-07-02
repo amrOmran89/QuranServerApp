@@ -1,4 +1,4 @@
-package com.tilawah.reciter_service
+package com.tilawah.router.reciter_router
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

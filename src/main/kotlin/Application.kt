@@ -12,5 +12,3 @@ fun Application.module() {
     configureRouting()
     openApi()
 }
-
-const val apiVersion = "/api/v1"

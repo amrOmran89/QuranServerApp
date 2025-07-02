@@ -1,10 +1,10 @@
 package com.tilawah
 
+import com.tilawah.Terms.authBearer
+import com.tilawah.Terms.bearerTokenCredential
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 
-const val bearerTokenCredential = "iabLEcToUSentUALiNacAldwinsOUS"
-const val authBearer = "auth-bearer"
 
 fun Application.configureBearerAuthentication() {
     install(Authentication) {

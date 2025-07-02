@@ -1,17 +1,16 @@
-package com.tilawah.reciter_service
+package com.tilawah.router.reciter_router
 
-import com.tilawah.apiVersion
-import com.tilawah.authBearer
+import com.tilawah.Terms.apiVersion
+import com.tilawah.Terms.authBearer
 import com.tilawah.client
-import io.ktor.client.call.body
-import io.ktor.client.request.get
-import io.ktor.http.isSuccess
-import io.ktor.server.auth.authenticate
-import io.ktor.server.response.respond
-import io.ktor.server.response.respondText
-import io.ktor.server.routing.Routing
-import io.ktor.server.routing.get
-import io.ktor.server.routing.route
+import com.tilawah.data_access_layer.ReciterRepository
+import com.tilawah.services.ReciterService
+import io.ktor.client.call.*
+import io.ktor.client.request.*
+import io.ktor.http.*
+import io.ktor.server.auth.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
 
 fun Routing.reciterRoute() {
     route("$apiVersion/reciters") {
@@ -20,12 +19,7 @@ fun Routing.reciterRoute() {
             // Endpoint to get all reciters
             get {
                 val language = call.parameters["language"] ?: "en"
-                val response = client.get("https://www.mp3quran.net/api/v3/reciters") {
-                    url {
-                        parameters.append("language", language)
-                    }
-                }
-
+                val response = ReciterService(ReciterRepository()).getAllReciters(language)
                 if (response.status.isSuccess()) {
                     val reciterDto = response.body<ReciterListDto>()
                     call.respond(reciterDto)
@@ -36,25 +30,16 @@ fun Routing.reciterRoute() {
 
             // Endpoint to get a specific reciter by ID
             get("/{id}") {
-                val id = call.parameters["id"]?.toIntOrNull()
-                if (id == null) {
-                    call.respondText("Invalid reciter ID", status = io.ktor.http.HttpStatusCode.BadRequest)
-                    return@get
-                }
-
-                val language = call.parameters["language"] ?: "en"
-                val response = client.get("https://www.mp3quran.net/api/v3/reciters/$id") {
-                    url {
-                        parameters.append("language", language)
+                val id = call.parameters["id"]?.toIntOrNull()?.let { id ->
+                    val language = call.parameters["language"] ?: "en"
+                    val response = ReciterService(ReciterRepository()).getReciterById(id, language)
+                    if (response.status.isSuccess()) {
+                        val reciterDto = response.body<ReciterDto>()
+                        call.respond(reciterDto)
+                    } else {
+                        call.respondText("Failed to fetch reciter with ID $id", status = response.status)
                     }
-                }
-
-                if (response.status.isSuccess()) {
-                    val reciterDto = response.body<ReciterDto>()
-                    call.respond(reciterDto)
-                } else {
-                    call.respondText("Failed to fetch reciter with ID $id", status = response.status)
-                }
+                } ?: return@get
             }
 
             // Endpoint to get a short list of reciters

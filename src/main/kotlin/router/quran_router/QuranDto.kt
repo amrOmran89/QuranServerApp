@@ -1,4 +1,4 @@
-package com.tilawah.quran_service
+package com.tilawah.router.quran_router
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

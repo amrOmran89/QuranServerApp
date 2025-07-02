@@ -1,7 +1,7 @@
-package com.tilawah.radio_service
+package com.tilawah.router.radio_router
 
-import com.tilawah.apiVersion
-import com.tilawah.authBearer
+import com.tilawah.Terms.apiVersion
+import com.tilawah.Terms.authBearer
 import com.tilawah.client
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -23,7 +23,7 @@ fun Routing.radioRoute() {
                         call.respond(status = HttpStatusCode.Accepted, radioList)
                     }
                     is PubApiResult.Failure -> {
-                        call.respondText("Failed to fetch radio stations: ${result.exception.toString()}", status = io.ktor.http.HttpStatusCode.InternalServerError)
+                        call.respondText("Failed to fetch radio stations: ${result.exception.toString()}", status = HttpStatusCode.InternalServerError)
                     }
                 }
             }

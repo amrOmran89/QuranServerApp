@@ -1,7 +1,7 @@
-package com.tilawah.quran_service
+package com.tilawah.router.quran_router
 
-import com.tilawah.apiVersion
-import com.tilawah.authBearer
+import com.tilawah.Terms.apiVersion
+import com.tilawah.Terms.authBearer
 import com.tilawah.client
 import io.ktor.client.call.*
 import io.ktor.client.request.*
