@@ -7,6 +7,9 @@ servers:
   - url: http://localhost:8080
     description: Localhost
 
+security:
+  - bearerAuth: []
+
 paths:
   /api/v1/quran:
     get:
@@ -46,6 +49,7 @@ paths:
   /api/v1/reciters:
     get:
       summary: Get all reciters
+      operationId: getAllReciters
       parameters:
         - name: language
           in: query
@@ -63,6 +67,7 @@ paths:
   /api/v1/reciters/short-list:
     get:
       summary: Get a filtered list of reciters
+      operationId: getRecitersShortList
       parameters:
         - name: language
           in: query
@@ -80,6 +85,7 @@ paths:
   /api/v1/radios/all:
     get:
       summary: Get all radio stations
+      operationId: getAllRadios
       parameters:
         - name: language
           in: query
@@ -97,6 +103,7 @@ paths:
   /api/v1/radios/short-list:
     get:
       summary: Get a filtered list of radios
+      operationId: getRadiosShortList
       parameters:
         - name: language
           in: query
@@ -112,6 +119,12 @@ paths:
                 $ref: '#/components/schemas/RadioListDto'
 
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # Optional — just describes the format
+
   schemas:
     QuranDto:
       type: object

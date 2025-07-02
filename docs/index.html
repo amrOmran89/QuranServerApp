@@ -844,20 +844,20 @@
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
-                    <li data-group="Default" data-name="apiV1RadiosAllGet" class="">
-                      <a href="#api-Default-apiV1RadiosAllGet">apiV1RadiosAllGet</a>
+                    <li data-group="Default" data-name="getAllRadios" class="">
+                      <a href="#api-Default-getAllRadios">getAllRadios</a>
                     </li>
-                    <li data-group="Default" data-name="apiV1RadiosShortListGet" class="">
-                      <a href="#api-Default-apiV1RadiosShortListGet">apiV1RadiosShortListGet</a>
-                    </li>
-                    <li data-group="Default" data-name="apiV1RecitersGet" class="">
-                      <a href="#api-Default-apiV1RecitersGet">apiV1RecitersGet</a>
-                    </li>
-                    <li data-group="Default" data-name="apiV1RecitersShortListGet" class="">
-                      <a href="#api-Default-apiV1RecitersShortListGet">apiV1RecitersShortListGet</a>
+                    <li data-group="Default" data-name="getAllReciters" class="">
+                      <a href="#api-Default-getAllReciters">getAllReciters</a>
                     </li>
                     <li data-group="Default" data-name="getAllSurahs" class="">
                       <a href="#api-Default-getAllSurahs">getAllSurahs</a>
+                    </li>
+                    <li data-group="Default" data-name="getRadiosShortList" class="">
+                      <a href="#api-Default-getRadiosShortList">getRadiosShortList</a>
+                    </li>
+                    <li data-group="Default" data-name="getRecitersShortList" class="">
+                      <a href="#api-Default-getRecitersShortList">getRecitersShortList</a>
                     </li>
                     <li data-group="Default" data-name="getSurahById" class="">
                       <a href="#api-Default-getSurahById">getSurahById</a>
@@ -883,10 +883,10 @@
         <div id="sections">
                 <section id="api-Default">
                   <h1>Default</h1>
-                    <div id="api-Default-apiV1RadiosAllGet">
-                      <article id="api-Default-apiV1RadiosAllGet-0" data-group="User" data-name="apiV1RadiosAllGet" data-version="0">
+                    <div id="api-Default-getAllRadios">
+                      <article id="api-Default-getAllRadios-0" data-group="User" data-name="getAllRadios" data-version="0">
                         <div class="pull-left">
-                          <h1>apiV1RadiosAllGet</h1>
+                          <h1>getAllRadios</h1>
                           <p>Get all radio stations</p>
                         </div>
                         <div class="pull-right"></div>
@@ -900,26 +900,27 @@
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-apiV1RadiosAllGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosAllGet-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Default-getAllRadios-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getAllRadios-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getAllRadios-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getAllRadios-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getAllRadios-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getAllRadios-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getAllRadios-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getAllRadios-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getAllRadios-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getAllRadios-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getAllRadios-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-apiV1RadiosAllGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getAllRadios-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
 -H "Accept: application/json"\
 "http://localhost:8080/api/v1/radios/all?language="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getAllRadios-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -931,21 +932,23 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
         DefaultApi apiInstance = new DefaultApi();
         String language = language_example; // String | 
         try {
-            RadioListDto result = apiInstance.apiV1RadiosAllGet(language);
+            RadioListDto result = apiInstance.getAllRadios(language);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RadiosAllGet");
+            System.err.println("Exception when calling DefaultApi#getAllRadios");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getAllRadios-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -954,26 +957,27 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String language = language_example; // String | 
         try {
-            RadioListDto result = apiInstance.apiV1RadiosAllGet(language);
+            RadioListDto result = apiInstance.getAllRadios(language);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RadiosAllGet");
+            System.err.println("Exception when calling DefaultApi#getAllRadios");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getAllRadios-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *language = language_example; //  (optional)
+                            <div class="tab-pane" id="examples-Default-getAllRadios-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+String *language = language_example; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get all radio stations
-[apiInstance apiV1RadiosAllGetWith:language
+[apiInstance getAllRadiosWith:language
               completionHandler: ^(RadioListDto output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -985,8 +989,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getAllRadios-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
+var defaultClient = TilawahQuranApi.ApiClient.instance;
+
 
 var api = new TilawahQuranApi.DefaultApi()
 var opts = { 
@@ -999,14 +1005,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.apiV1RadiosAllGet(opts, callback);
+api.getAllRadios(opts, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getAllRadios-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getAllRadios-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1015,10 +1021,11 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class apiV1RadiosAllGetExample
+    public class getAllRadiosExample
     {
         public void main()
         {
+
 
             var apiInstance = new DefaultApi();
             var language = language_example;  // String |  (optional) 
@@ -1026,12 +1033,12 @@ namespace Example
             try
             {
                 // Get all radio stations
-                RadioListDto result = apiInstance.apiV1RadiosAllGet(language);
+                RadioListDto result = apiInstance.getAllRadios(language);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.apiV1RadiosAllGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getAllRadios: " + e.Message );
             }
         }
     }
@@ -1039,45 +1046,48 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getAllRadios-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
 $language = language_example; // String | 
 
 try {
-    $result = $api_instance->apiV1RadiosAllGet($language);
+    $result = $api_instance->getAllRadios($language);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->apiV1RadiosAllGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getAllRadios: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getAllRadios-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
+
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $language = language_example; # String | 
 
 eval { 
-    my $result = $api_instance->apiV1RadiosAllGet(language => $language);
+    my $result = $api_instance->getAllRadios(language => $language);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->apiV1RadiosAllGet: $@\n";
+    warn "Exception when calling DefaultApi->getAllRadios: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosAllGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getAllRadios-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -1085,10 +1095,10 @@ language = language_example # String |  (optional)
 
 try: 
     # Get all radio stations
-    api_response = api_instance.api_v1_radios_all_get(language=language)
+    api_response = api_instance.get_all_radios(language=language)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->apiV1RadiosAllGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getAllRadios: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1108,7 +1118,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_apiV1RadiosAllGet_language">
+                                    <div id="d2e199_getAllRadios_language">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -1127,14 +1137,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-apiV1RadiosAllGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-getAllRadios-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-apiV1RadiosAllGet-200-schema">
-                                  <div id='responses-apiV1RadiosAllGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-getAllRadios-200-schema">
+                                  <div id='responses-getAllRadios-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -1160,315 +1170,24 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-apiV1RadiosAllGet-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-apiV1RadiosAllGet-200-schema-200');
+                                        $('#responses-getAllRadios-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getAllRadios-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-apiV1RadiosAllGet-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-getAllRadios-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
                         </article>
                       </div>
                       <hr>
-                    <div id="api-Default-apiV1RadiosShortListGet">
-                      <article id="api-Default-apiV1RadiosShortListGet-0" data-group="User" data-name="apiV1RadiosShortListGet" data-version="0">
+                    <div id="api-Default-getAllReciters">
+                      <article id="api-Default-getAllReciters-0" data-group="User" data-name="getAllReciters" data-version="0">
                         <div class="pull-left">
-                          <h1>apiV1RadiosShortListGet</h1>
-                          <p>Get a filtered list of radios</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/radios/short-list</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-apiV1RadiosShortListGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RadiosShortListGet-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-apiV1RadiosShortListGet-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: application/json"\
-"http://localhost:8080/api/v1/radios/short-list?language="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        String language = language_example; // String | 
-        try {
-            RadioListDto result = apiInstance.apiV1RadiosShortListGet(language);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RadiosShortListGet");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        String language = language_example; // String | 
-        try {
-            RadioListDto result = apiInstance.apiV1RadiosShortListGet(language);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RadiosShortListGet");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *language = language_example; //  (optional)
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-// Get a filtered list of radios
-[apiInstance apiV1RadiosShortListGetWith:language
-              completionHandler: ^(RadioListDto output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
-
-var api = new TilawahQuranApi.DefaultApi()
-var opts = { 
-  'language': language_example // {{String}} 
-};
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.apiV1RadiosShortListGet(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class apiV1RadiosShortListGetExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var language = language_example;  // String |  (optional) 
-
-            try
-            {
-                // Get a filtered list of radios
-                RadioListDto result = apiInstance.apiV1RadiosShortListGet(language);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.apiV1RadiosShortListGet: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$language = language_example; // String | 
-
-try {
-    $result = $api_instance->apiV1RadiosShortListGet($language);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->apiV1RadiosShortListGet: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $language = language_example; # String | 
-
-eval { 
-    my $result = $api_instance->apiV1RadiosShortListGet(language => $language);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->apiV1RadiosShortListGet: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RadiosShortListGet-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-language = language_example # String |  (optional)
-
-try: 
-    # Get a filtered list of radios
-    api_response = api_instance.api_v1_radios_short_list_get(language=language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->apiV1RadiosShortListGet: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">language</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_apiV1RadiosShortListGet_language">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    String
-                                                </span>
-                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - Filtered list of radios </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-apiV1RadiosShortListGet-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-apiV1RadiosShortListGet-200-schema">
-                                  <div id='responses-apiV1RadiosShortListGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "Filtered list of radios",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/RadioListDto"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-apiV1RadiosShortListGet-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-apiV1RadiosShortListGet-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-apiV1RadiosShortListGet-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-apiV1RecitersGet">
-                      <article id="api-Default-apiV1RecitersGet-0" data-group="User" data-name="apiV1RecitersGet" data-version="0">
-                        <div class="pull-left">
-                          <h1>apiV1RecitersGet</h1>
+                          <h1>getAllReciters</h1>
                           <p>Get all reciters</p>
                         </div>
                         <div class="pull-right"></div>
@@ -1482,26 +1201,27 @@ except ApiException as e:
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-apiV1RecitersGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RecitersGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RecitersGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersGet-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-Default-getAllReciters-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getAllReciters-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getAllReciters-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getAllReciters-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getAllReciters-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getAllReciters-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getAllReciters-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getAllReciters-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getAllReciters-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getAllReciters-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getAllReciters-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-apiV1RecitersGet-0-curl">
+                          <div class="tab-pane active" id="examples-Default-getAllReciters-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
 -H "Accept: application/json"\
 "http://localhost:8080/api/v1/reciters?language="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-java">
+                          <div class="tab-pane" id="examples-Default-getAllReciters-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
@@ -1513,21 +1233,23 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
         DefaultApi apiInstance = new DefaultApi();
         String language = language_example; // String | 
         try {
-            ReciterListDto result = apiInstance.apiV1RecitersGet(language);
+            ReciterListDto result = apiInstance.getAllReciters(language);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RecitersGet");
+            System.err.println("Exception when calling DefaultApi#getAllReciters");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-android">
+                          <div class="tab-pane" id="examples-Default-getAllReciters-0-android">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
 
 public class DefaultApiExample {
@@ -1536,26 +1258,27 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String language = language_example; // String | 
         try {
-            ReciterListDto result = apiInstance.apiV1RecitersGet(language);
+            ReciterListDto result = apiInstance.getAllReciters(language);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RecitersGet");
+            System.err.println("Exception when calling DefaultApi#getAllReciters");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-groovy">
+  <div class="tab-pane" id="examples-Default-getAllReciters-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *language = language_example; //  (optional)
+                            <div class="tab-pane" id="examples-Default-getAllReciters-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+String *language = language_example; //  (optional)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get all reciters
-[apiInstance apiV1RecitersGetWith:language
+[apiInstance getAllRecitersWith:language
               completionHandler: ^(ReciterListDto output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -1567,8 +1290,10 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-javascript">
+                            <div class="tab-pane" id="examples-Default-getAllReciters-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
+var defaultClient = TilawahQuranApi.ApiClient.instance;
+
 
 var api = new TilawahQuranApi.DefaultApi()
 var opts = { 
@@ -1581,14 +1306,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.apiV1RecitersGet(opts, callback);
+api.getAllReciters(opts, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-angular">
+                            <!--<div class="tab-pane" id="examples-Default-getAllReciters-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-csharp">
+                            <div class="tab-pane" id="examples-Default-getAllReciters-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1597,10 +1322,11 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class apiV1RecitersGetExample
+    public class getAllRecitersExample
     {
         public void main()
         {
+
 
             var apiInstance = new DefaultApi();
             var language = language_example;  // String |  (optional) 
@@ -1608,12 +1334,12 @@ namespace Example
             try
             {
                 // Get all reciters
-                ReciterListDto result = apiInstance.apiV1RecitersGet(language);
+                ReciterListDto result = apiInstance.getAllReciters(language);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DefaultApi.apiV1RecitersGet: " + e.Message );
+                Debug.Print("Exception when calling DefaultApi.getAllReciters: " + e.Message );
             }
         }
     }
@@ -1621,45 +1347,48 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-php">
+                            <div class="tab-pane" id="examples-Default-getAllReciters-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 $api_instance = new Swagger\Client\ApiDefaultApi();
 $language = language_example; // String | 
 
 try {
-    $result = $api_instance->apiV1RecitersGet($language);
+    $result = $api_instance->getAllReciters($language);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->apiV1RecitersGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->getAllReciters: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-perl">
+                            <div class="tab-pane" id="examples-Default-getAllReciters-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
+
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $language = language_example; # String | 
 
 eval { 
-    my $result = $api_instance->apiV1RecitersGet(language => $language);
+    my $result = $api_instance->getAllReciters(language => $language);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DefaultApi->apiV1RecitersGet: $@\n";
+    warn "Exception when calling DefaultApi->getAllReciters: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersGet-0-python">
+                            <div class="tab-pane" id="examples-Default-getAllReciters-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -1667,10 +1396,10 @@ language = language_example # String |  (optional)
 
 try: 
     # Get all reciters
-    api_response = api_instance.api_v1_reciters_get(language=language)
+    api_response = api_instance.get_all_reciters(language=language)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->apiV1RecitersGet: %s\n" % e)</code></pre>
+    print("Exception when calling DefaultApi->getAllReciters: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1690,7 +1419,7 @@ except ApiException as e:
                                 <td>
                                 
                                 
-                                    <div id="d2e199_apiV1RecitersGet_language">
+                                    <div id="d2e199_getAllReciters_language">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -1709,14 +1438,14 @@ except ApiException as e:
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-apiV1RecitersGet-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-getAllReciters-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-apiV1RecitersGet-200-schema">
-                                  <div id='responses-apiV1RecitersGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-getAllReciters-200-schema">
+                                  <div id='responses-getAllReciters-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
@@ -1742,305 +1471,14 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-apiV1RecitersGet-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-apiV1RecitersGet-200-schema-200');
+                                        $('#responses-getAllReciters-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getAllReciters-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-apiV1RecitersGet-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-Default-apiV1RecitersShortListGet">
-                      <article id="api-Default-apiV1RecitersShortListGet-0" data-group="User" data-name="apiV1RecitersShortListGet" data-version="0">
-                        <div class="pull-left">
-                          <h1>apiV1RecitersShortListGet</h1>
-                          <p>Get a filtered list of reciters</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/reciters/short-list</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-apiV1RecitersShortListGet-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-apiV1RecitersShortListGet-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-apiV1RecitersShortListGet-0-curl">
-                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
--H "Accept: application/json"\
-"http://localhost:8080/api/v1/reciters/short-list?language="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        String language = language_example; // String | 
-        try {
-            ReciterListDto result = apiInstance.apiV1RecitersShortListGet(language);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RecitersShortListGet");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        String language = language_example; // String | 
-        try {
-            ReciterListDto result = apiInstance.apiV1RecitersShortListGet(language);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#apiV1RecitersShortListGet");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *language = language_example; //  (optional)
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-// Get a filtered list of reciters
-[apiInstance apiV1RecitersShortListGetWith:language
-              completionHandler: ^(ReciterListDto output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
-
-var api = new TilawahQuranApi.DefaultApi()
-var opts = { 
-  'language': language_example // {{String}} 
-};
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.apiV1RecitersShortListGet(opts, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class apiV1RecitersShortListGetExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-            var language = language_example;  // String |  (optional) 
-
-            try
-            {
-                // Get a filtered list of reciters
-                ReciterListDto result = apiInstance.apiV1RecitersShortListGet(language);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.apiV1RecitersShortListGet: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-$language = language_example; // String | 
-
-try {
-    $result = $api_instance->apiV1RecitersShortListGet($language);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->apiV1RecitersShortListGet: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $language = language_example; # String | 
-
-eval { 
-    my $result = $api_instance->apiV1RecitersShortListGet(language => $language);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->apiV1RecitersShortListGet: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-apiV1RecitersShortListGet-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-language = language_example # String |  (optional)
-
-try: 
-    # Get a filtered list of reciters
-    api_response = api_instance.api_v1_reciters_short_list_get(language=language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->apiV1RecitersShortListGet: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">language</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_apiV1RecitersShortListGet_language">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    String
-                                                </span>
-                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - Short list of reciters </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-apiV1RecitersShortListGet-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-apiV1RecitersShortListGet-200-schema">
-                                  <div id='responses-apiV1RecitersShortListGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "Short list of reciters",
-  "content" : {
-    "application/json" : {
-      "schema" : {
-        "$ref" : "#/components/schemas/ReciterListDto"
-      }
-    }
-  }
-};
-                                        var schema = schemaWrapper.content["application/json"].schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.components = {};
-                                          schemaWrapper.components.schemas = Object.assign({}, defs);
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-apiV1RecitersShortListGet-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-apiV1RecitersShortListGet-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-apiV1RecitersShortListGet-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-getAllReciters-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -2080,6 +1518,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-getAllSurahs-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
 -H "Accept: application/json"\
 "http://localhost:8080/api/v1/quran"</code></pre>
                           </div>
@@ -2095,7 +1534,9 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
         DefaultApi apiInstance = new DefaultApi();
         try {
             array[QuranDto] result = apiInstance.getAllSurahs();
@@ -2130,7 +1571,8 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getAllSurahs-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 // Get all Surahs
@@ -2148,6 +1590,8 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-getAllSurahs-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
+var defaultClient = TilawahQuranApi.ApiClient.instance;
+
 
 var api = new TilawahQuranApi.DefaultApi()
 var callback = function(error, data, response) {
@@ -2178,6 +1622,7 @@ namespace Example
         public void main()
         {
 
+
             var apiInstance = new DefaultApi();
 
             try
@@ -2200,6 +1645,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $api_instance = new Swagger\Client\ApiDefaultApi();
 
 try {
@@ -2215,6 +1661,7 @@ try {
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
+
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 
@@ -2233,6 +1680,7 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -2309,6 +1757,608 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-Default-getRadiosShortList">
+                      <article id="api-Default-getRadiosShortList-0" data-group="User" data-name="getRadiosShortList" data-version="0">
+                        <div class="pull-left">
+                          <h1>getRadiosShortList</h1>
+                          <p>Get a filtered list of radios</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/radios/short-list</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-getRadiosShortList-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getRadiosShortList-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getRadiosShortList-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getRadiosShortList-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-getRadiosShortList-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+-H "Accept: application/json"\
+"http://localhost:8080/api/v1/radios/short-list?language="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-getRadiosShortList-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        String language = language_example; // String | 
+        try {
+            RadioListDto result = apiInstance.getRadiosShortList(language);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getRadiosShortList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-getRadiosShortList-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        String language = language_example; // String | 
+        try {
+            RadioListDto result = apiInstance.getRadiosShortList(language);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getRadiosShortList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-getRadiosShortList-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-getRadiosShortList-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+String *language = language_example; //  (optional)
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+// Get a filtered list of radios
+[apiInstance getRadiosShortListWith:language
+              completionHandler: ^(RadioListDto output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRadiosShortList-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
+var defaultClient = TilawahQuranApi.ApiClient.instance;
+
+
+var api = new TilawahQuranApi.DefaultApi()
+var opts = { 
+  'language': language_example // {{String}} 
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getRadiosShortList(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-getRadiosShortList-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-getRadiosShortList-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getRadiosShortListExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+            var language = language_example;  // String |  (optional) 
+
+            try
+            {
+                // Get a filtered list of radios
+                RadioListDto result = apiInstance.getRadiosShortList(language);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.getRadiosShortList: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRadiosShortList-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$language = language_example; // String | 
+
+try {
+    $result = $api_instance->getRadiosShortList($language);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getRadiosShortList: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRadiosShortList-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $language = language_example; # String | 
+
+eval { 
+    my $result = $api_instance->getRadiosShortList(language => $language);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->getRadiosShortList: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRadiosShortList-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+language = language_example # String |  (optional)
+
+try: 
+    # Get a filtered list of radios
+    api_response = api_instance.get_radios_short_list(language=language)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->getRadiosShortList: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">language</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_getRadiosShortList_language">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Filtered list of radios </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getRadiosShortList-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getRadiosShortList-200-schema">
+                                  <div id='responses-getRadiosShortList-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Filtered list of radios",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/RadioListDto"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getRadiosShortList-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getRadiosShortList-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getRadiosShortList-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Default-getRecitersShortList">
+                      <article id="api-Default-getRecitersShortList-0" data-group="User" data-name="getRecitersShortList" data-version="0">
+                        <div class="pull-left">
+                          <h1>getRecitersShortList</h1>
+                          <p>Get a filtered list of reciters</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/api/v1/reciters/short-list</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-getRecitersShortList-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getRecitersShortList-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getRecitersShortList-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getRecitersShortList-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-getRecitersShortList-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
+-H "Accept: application/json"\
+"http://localhost:8080/api/v1/reciters/short-list?language="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-getRecitersShortList-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        DefaultApi apiInstance = new DefaultApi();
+        String language = language_example; // String | 
+        try {
+            ReciterListDto result = apiInstance.getRecitersShortList(language);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getRecitersShortList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-getRecitersShortList-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        String language = language_example; // String | 
+        try {
+            ReciterListDto result = apiInstance.getRecitersShortList(language);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getRecitersShortList");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-getRecitersShortList-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-getRecitersShortList-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+String *language = language_example; //  (optional)
+
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+// Get a filtered list of reciters
+[apiInstance getRecitersShortListWith:language
+              completionHandler: ^(ReciterListDto output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRecitersShortList-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
+var defaultClient = TilawahQuranApi.ApiClient.instance;
+
+
+var api = new TilawahQuranApi.DefaultApi()
+var opts = { 
+  'language': language_example // {{String}} 
+};
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getRecitersShortList(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-getRecitersShortList-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-getRecitersShortList-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getRecitersShortListExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new DefaultApi();
+            var language = language_example;  // String |  (optional) 
+
+            try
+            {
+                // Get a filtered list of reciters
+                ReciterListDto result = apiInstance.getRecitersShortList(language);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.getRecitersShortList: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRecitersShortList-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+$language = language_example; // String | 
+
+try {
+    $result = $api_instance->getRecitersShortList($language);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getRecitersShortList: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRecitersShortList-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+my $language = language_example; # String | 
+
+eval { 
+    my $result = $api_instance->getRecitersShortList(language => $language);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->getRecitersShortList: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getRecitersShortList-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+language = language_example # String |  (optional)
+
+try: 
+    # Get a filtered list of reciters
+    api_response = api_instance.get_reciters_short_list(language=language)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->getRecitersShortList: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">language</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_getRecitersShortList_language">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Short list of reciters </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getRecitersShortList-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getRecitersShortList-200-schema">
+                                  <div id='responses-getRecitersShortList-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Short list of reciters",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/ReciterListDto"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getRecitersShortList-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getRecitersShortList-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getRecitersShortList-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Default-getSurahById">
                       <article id="api-Default-getSurahById-0" data-group="User" data-name="getSurahById" data-version="0">
                         <div class="pull-left">
@@ -2342,6 +2392,7 @@ except ApiException as e:
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-getSurahById-0-curl">
                            <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+ -H "Authorization: Bearer [[accessToken]]"\
 -H "Accept: application/json"\
 "http://localhost:8080/api/v1/quran/{id}"</code></pre>
                           </div>
@@ -2357,7 +2408,9 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
         DefaultApi apiInstance = new DefaultApi();
         Integer id = 56; // Integer | The surah number (1–114)
         try {
@@ -2394,7 +2447,8 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getSurahById-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Integer *id = 56; // The surah number (1–114)
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+Integer *id = 56; // The surah number (1–114)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -2413,6 +2467,8 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-getSurahById-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var TilawahQuranApi = require('tilawah_quran_api');
+var defaultClient = TilawahQuranApi.ApiClient.instance;
+
 
 var api = new TilawahQuranApi.DefaultApi()
 var id = 56; // {{Integer}} The surah number (1–114)
@@ -2445,6 +2501,7 @@ namespace Example
         public void main()
         {
 
+
             var apiInstance = new DefaultApi();
             var id = 56;  // Integer | The surah number (1–114)
 
@@ -2468,6 +2525,7 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $api_instance = new Swagger\Client\ApiDefaultApi();
 $id = 56; // Integer | The surah number (1–114)
 
@@ -2484,6 +2542,7 @@ try {
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
+
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $id = 56; # Integer | The surah number (1–114)
@@ -2503,6 +2562,7 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
+
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
