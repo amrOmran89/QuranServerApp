@@ -29,10 +29,10 @@ fun Routing.reciterRoute() {
             }
 
             // Endpoint to get a specific reciter by ID
-            get("/{id}") {
-                call.parameters["id"]?.toIntOrNull()?.let { id ->
+            get("/reciter") {
+                call.parameters["id"]?.toIntOrNull()?.let { reciterId ->
                     val language = call.parameters["language"] ?: "en"
-                    val response = ReciterService(ReciterRepository()).getReciterById(id, language)
+                    val response = ReciterService(ReciterRepository()).getReciterById(reciterId, language)
                     when (response) {
                         is ResultState.Success -> {
                             val reciterDto = response.data

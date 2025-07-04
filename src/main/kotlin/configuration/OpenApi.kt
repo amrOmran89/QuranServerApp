@@ -1,4 +1,4 @@
-package com.tilawah
+package com.tilawah.configuration
 
 import io.ktor.server.application.*
 import io.ktor.server.plugins.openapi.*

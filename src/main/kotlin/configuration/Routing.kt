@@ -1,4 +1,4 @@
-package com.tilawah
+package com.tilawah.configuration
 
 import com.tilawah.router.quran_router.quranRoute
 import com.tilawah.router.radio_router.radioRoute

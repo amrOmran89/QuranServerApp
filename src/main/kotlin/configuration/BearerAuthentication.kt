@@ -1,4 +1,4 @@
-package com.tilawah
+package com.tilawah.configuration
 
 import com.tilawah.Terms.authBearer
 import com.tilawah.Terms.bearerTokenCredential

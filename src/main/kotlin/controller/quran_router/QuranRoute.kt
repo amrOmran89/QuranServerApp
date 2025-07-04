@@ -2,9 +2,8 @@ package com.tilawah.router.quran_router
 
 import com.tilawah.Terms.apiVersion
 import com.tilawah.Terms.authBearer
-import com.tilawah.client
-import io.ktor.client.call.*
-import io.ktor.client.request.*
+import com.tilawah.services.QuranService
+import com.tilawah.services.ResultState
 import io.ktor.http.*
 import io.ktor.server.auth.*
 import io.ktor.server.response.*
@@ -15,10 +14,14 @@ fun Routing.quranRoute() {
     route("$apiVersion/quran") {
         authenticate(authBearer) {
             get {
-                val response = client.get("https://quranapi.pages.dev/api/surah.json")
-                if (response.status.isSuccess()) {
-                    val result = response.body<QuranListDto>()
-                    call.respond(status = HttpStatusCode.Accepted, result)
+                val result = QuranService().getQuranData()
+                when (result) {
+                    is ResultState.Success -> {
+                        call.respond(status = HttpStatusCode.Accepted, result.data)
+                    }
+                    is ResultState.Error -> {
+                        call.respondText("Failed to fetch Quran data", status = result.status)
+                    }
                 }
             }
 
@@ -28,10 +31,14 @@ fun Routing.quranRoute() {
                     call.respondText("Invalid reciter ID", status = HttpStatusCode.BadRequest)
                     return@get
                 }
-                val response = client.get("https://quranapi.pages.dev/api/${surahId}.json")
-                if (response.status.isSuccess()) {
-                    val result = response.body<QuranText>()
-                    call.respond(status = HttpStatusCode.Accepted, result)
+                val result = QuranService().getSurahById(surahId)
+                when (result) {
+                    is ResultState.Success -> {
+                        call.respond(status = HttpStatusCode.Accepted, result.data)
+                    }
+                    is ResultState.Error -> {
+                        call.respondText("Failed to fetch Quran data", status = result.status)
+                    }
                 }
             }
         }
