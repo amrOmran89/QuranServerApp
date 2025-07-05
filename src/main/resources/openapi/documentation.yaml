@@ -64,6 +64,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/ReciterListDto'
 
+  /api/v1/reciters/reciter:
+    get:
+      summary: Get reciter by ID
+      operationId: getReciterById
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: The reciter ID
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Reciter details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReciterDto'
+        "404":
+          description: Reciter not found
+
   /api/v1/reciters/short-list:
     get:
       summary: Get a filtered list of reciters
@@ -82,7 +103,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ReciterListDto'
 
-  /api/v1/radios/all:
+  /api/v1/radios:
     get:
       summary: Get all radio stations
       operationId: getAllRadios

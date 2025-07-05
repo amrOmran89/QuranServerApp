@@ -1,4 +1,4 @@
-package com.tilawah.router.quran_router
+package com.tilawah.controller.quran_router
 
 import com.tilawah.Terms.apiVersion
 import com.tilawah.Terms.authBearer

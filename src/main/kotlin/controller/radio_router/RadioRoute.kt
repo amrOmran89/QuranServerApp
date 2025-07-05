@@ -1,4 +1,4 @@
-package com.tilawah.router.radio_router
+package com.tilawah.controller.radio_router
 
 import com.tilawah.Terms.apiVersion
 import com.tilawah.Terms.authBearer

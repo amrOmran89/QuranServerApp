@@ -1,6 +1,7 @@
 package com.tilawah.data_access_layer
 
 import com.tilawah.URLS.RECITER_URL
+import com.tilawah.URLS.SUWAR_URL
 import com.tilawah.configuration.client
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -24,5 +25,14 @@ class ReciterRepository {
             }
         }
         return response.body()
+    }
+
+    suspend fun getSuwar(query: String): HttpResponse {
+        val suwarResponse = client.get(SUWAR_URL) {
+            url {
+                parameters.append("language", query)
+            }
+        }
+        return suwarResponse.body()
     }
 }

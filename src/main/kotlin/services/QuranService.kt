@@ -1,8 +1,8 @@
 package com.tilawah.services
 
 import com.tilawah.data_access_layer.QuranRepository
-import com.tilawah.router.quran_router.QuranDto
-import com.tilawah.router.quran_router.QuranListDto
+import com.tilawah.dtos.QuranListDto
+import com.tilawah.dtos.QuranText
 import io.ktor.client.call.*
 import io.ktor.http.*
 
@@ -19,11 +19,11 @@ class QuranService {
         }
     }
 
-    suspend fun getSurahById(surahId: Int?): ResultState<QuranDto> {
+    suspend fun getSurahById(surahId: Int?): ResultState<QuranText> {
         val repository = QuranRepository()
         val response = repository.getSurahById(surahId)
         if (response.status.isSuccess()) {
-            val surahData = response.body<QuranDto>()
+            val surahData = response.body<QuranText>()
             return ResultState.Success(surahData)
         } else {
             return ResultState.Error(response.status)

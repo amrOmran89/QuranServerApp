@@ -1,22 +1,10 @@
-package com.tilawah.controller.reciter_router
+package com.tilawah
 
-import kotlinx.serialization.Serializable
+import com.tilawah.dtos.ReciterListDto
 
-@Serializable
-data class ReciterListDto(val reciters: List<ReciterDto>)
-
-@Serializable
-data class ReciterDto(val id: Int, val name: String, val date: String, val moshaf: List<MoshafDto>)
-
-@Serializable
-data class MoshafDto(
-    val id: Int,
-    val name: String,
-    val server: String,
-    val surahTotal: Int,
-    val moshafType: Int,
-    val surahList: List<String>
-)
+fun Int.toMp3Format(): String {
+    return String.format("%03d", this) + ".mp3"
+}
 
 fun ReciterListDto.shortList(): ReciterListDto {
     val shortReciters = this.reciters.filter {

@@ -1,7 +1,7 @@
 package com.tilawah.configuration
 
-import com.tilawah.router.quran_router.quranRoute
-import com.tilawah.router.radio_router.radioRoute
+import com.tilawah.controller.quran_router.quranRoute
+import com.tilawah.controller.radio_router.radioRoute
 import com.tilawah.router.reciter_router.reciterRoute
 import io.ktor.server.application.*
 import io.ktor.server.routing.*

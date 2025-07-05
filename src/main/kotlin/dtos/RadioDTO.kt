@@ -1,4 +1,4 @@
-package com.tilawah.router.radio_router
+package com.tilawah.dtos
 
 import kotlinx.serialization.Serializable
 

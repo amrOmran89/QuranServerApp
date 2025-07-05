@@ -1,7 +1,7 @@
 package com.tilawah.services
 
 import com.tilawah.data_access_layer.RadioRepository
-import com.tilawah.router.radio_router.RadioListDTO
+import com.tilawah.dtos.RadioListDTO
 import io.ktor.client.call.*
 import io.ktor.http.*
 
